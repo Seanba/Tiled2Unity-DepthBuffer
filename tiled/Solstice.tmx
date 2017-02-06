@@ -2,6 +2,13 @@
 <map version="1.0" orientation="isometric" renderorder="right-down" width="16" height="16" tilewidth="32" tileheight="16" nextobjectid="1">
  <tileset firstgid="1" name="soltice-ts" tilewidth="32" tileheight="24" tilecount="4" columns="4">
   <image source="solstice-ts.png" width="128" height="24"/>
+  <tile id="0">
+   <objectgroup draworder="index">
+    <object id="11" x="16" y="16.5">
+     <polygon points="0,0 16,-8.25 0,-16.5 -16,-8.25"/>
+    </object>
+   </objectgroup>
+  </tile>
  </tileset>
  <layer name="Ground" width="16" height="16">
   <data encoding="csv">
@@ -14,11 +21,11 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,2,2,2,2,0,
-0,0,0,0,0,0,0,0,0,0,0,2,2,2,2,0,
-0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,0,
-0,0,0,0,0,0,0,0,0,0,0,2,2,2,2,0,
-0,0,0,0,0,0,0,0,0,0,0,2,2,2,2,0,
+0,0,0,0,0,2,2,2,2,2,2,2,2,2,2,0,
+0,0,0,0,0,2,2,2,2,2,2,2,2,2,2,0,
+0,0,0,0,0,2,2,2,2,2,2,2,2,2,2,0,
+0,0,0,0,0,2,2,2,2,2,2,2,2,2,2,0,
+0,0,0,0,0,2,2,2,2,2,2,2,2,2,2,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
@@ -43,7 +50,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="Height2" width="16" height="16" offsetx="0" offsety="-16">
+ <layer name="Height2" width="16" height="16" visible="0" offsetx="0" offsety="-16">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -63,7 +70,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="Height3" width="16" height="16" offsetx="0" offsety="-24">
+ <layer name="Height3" width="16" height="16" visible="0" offsetx="0" offsety="-24">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -83,7 +90,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="Height4" width="16" height="16" offsetx="0" offsety="-32">
+ <layer name="Height4" width="16" height="16" visible="0" offsetx="0" offsety="-32">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -103,7 +110,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="Height5" width="16" height="16" offsetx="0" offsety="-40">
+ <layer name="Height5" width="16" height="16" visible="0" offsetx="0" offsety="-40">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
