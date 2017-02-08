@@ -6,9 +6,9 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: shadax-mat
-  m_Shader: {fileID: 4800000, guid: a27eb994ddf5ad04d97a5b481b4c3e6c, type: 3}
-  m_ShaderKeywords: PIXELSNAP_ON _EMISSION
+  m_Name: t2USprite-DiffuseDepth
+  m_Shader: {fileID: 4800000, guid: 766dc1c42357441429d869f67de2c722, type: 3}
+  m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -72,7 +72,7 @@ Material:
     m_Floats:
     - first:
         name: PixelSnap
-      second: 1
+      second: 0
     - first:
         name: _BumpScale
       second: 1

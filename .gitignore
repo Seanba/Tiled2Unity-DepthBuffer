@@ -49,3 +49,5 @@ Temporary Items
 # My directories to ignore
 unity/DepthBufferExamples/Library/
 unity/DepthBufferExamples/Temp/
+unity/DepthBufferExamples/.vs/DepthBufferExamples/v14/.suo
+
