@@ -157,7 +157,12 @@ namespace Tiled2Unity
                 AddTileLayerComponentsTo(child, goXml);
                 AddObjectLayerComponentsTo(child, goXml);
 
-                // Add any tile objects
+                // Add any object group items
+                AddTmxObjectComponentsTo(child, goXml);
+                AddRectangleObjectComponentsTo(child, goXml);
+                AddCircleObjectComponentsTo(child, goXml);
+                AddPolygonObjectComponentsTo(child, goXml);
+                AddPolylineObjectComponentsTo(child, goXml);
                 AddTileObjectComponentsTo(child, goXml);
 
                 // Add any tile animators
@@ -434,15 +439,80 @@ namespace Tiled2Unity
             layer.Offset = new Vector2 { x = ImportUtils.GetAttributeAsFloat(xml, "offsetX", 0), y = ImportUtils.GetAttributeAsFloat(xml, "offsetY", 0) };
         }
 
+        private void AddTmxObjectComponentsTo(GameObject gameObject, XElement goXml)
+        {
+            var xml = goXml.Element("TmxObjectComponent");
+            if (xml != null)
+            {
+                TmxObject tmxObject = gameObject.AddComponent<TmxObject>();
+                FillBaseTmxObjectProperties(tmxObject, xml);
+            }
+        }
+
+        private void AddRectangleObjectComponentsTo(GameObject gameObject, XElement goXml)
+        {
+            var xml = goXml.Element("RectangleObjectComponent");
+            if (xml != null)
+            {
+                RectangleObject tmxRectangle = gameObject.AddComponent<Tiled2Unity.RectangleObject>();
+                FillBaseTmxObjectProperties(tmxRectangle, xml);
+            }
+        }
+
+        private void AddCircleObjectComponentsTo(GameObject gameObject, XElement goXml)
+        {
+            var xml = goXml.Element("CircleObjectComponent");
+            if (xml != null)
+            {
+                CircleObject tmxCircle = gameObject.AddComponent<Tiled2Unity.CircleObject>();
+                FillBaseTmxObjectProperties(tmxCircle, xml);
+            }
+        }
+
+        private void AddPolygonObjectComponentsTo(GameObject gameObject, XElement goXml)
+        {
+            var xml = goXml.Element("PolygonObjectComponent");
+            if (xml != null)
+            {
+                PolygonObject tmxPolygon = gameObject.AddComponent<Tiled2Unity.PolygonObject>();
+                FillBaseTmxObjectProperties(tmxPolygon, xml);
+            }
+        }
+
+        private void AddPolylineObjectComponentsTo(GameObject gameObject, XElement goXml)
+        {
+            var xml = goXml.Element("PolylineObjectComponent");
+            if (xml != null)
+            {
+                PolylineObject tmxPolyline = gameObject.AddComponent<Tiled2Unity.PolylineObject>();
+                FillBaseTmxObjectProperties(tmxPolyline, xml);
+            }
+        }
+
         private void AddTileObjectComponentsTo(GameObject gameObject, XElement goXml)
         {
             var tileXml = goXml.Element("TileObjectComponent");
             if (tileXml != null)
             {
                 TileObject tileObject = gameObject.AddComponent<TileObject>();
+                FillBaseTmxObjectProperties(tileObject, tileXml);
+                tileObject.TmxFlippingHorizontal = ImportUtils.GetAttributeAsBoolean(tileXml, "tmx-tile-flip-horizontal", false);
+                tileObject.TmxFlippingVertical = ImportUtils.GetAttributeAsBoolean(tileXml, "tmx-tile-flip-vertical", false);
                 tileObject.TileWidth = ImportUtils.GetAttributeAsFloat(tileXml, "width");
                 tileObject.TileHeight = ImportUtils.GetAttributeAsFloat(tileXml, "height");
             }
+        }
+
+        private void FillBaseTmxObjectProperties(Tiled2Unity.TmxObject tmxComponent, XElement xml)
+        {
+            tmxComponent.TmxId = ImportUtils.GetAttributeAsInt(xml, "tmx-object-id", -1);
+            tmxComponent.TmxName = ImportUtils.GetAttributeAsString(xml, "tmx-object-name", "");
+            tmxComponent.TmxType = ImportUtils.GetAttributeAsString(xml, "tmx-object-type", "");
+            tmxComponent.TmxPosition.x = ImportUtils.GetAttributeAsFloat(xml, "tmx-object-x", 0);
+            tmxComponent.TmxPosition.y = ImportUtils.GetAttributeAsFloat(xml, "tmx-object-y", 0);
+            tmxComponent.TmxSize.x = ImportUtils.GetAttributeAsFloat(xml, "tmx-object-width", 0);
+            tmxComponent.TmxSize.y = ImportUtils.GetAttributeAsFloat(xml, "tmx-object-height", 0);
+            tmxComponent.TmxRotation = ImportUtils.GetAttributeAsFloat(xml, "tmx-object-rotation", 0);
         }
 
         private void AddTileAnimatorsTo(GameObject gameObject, XElement goXml)
